@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { addUser } from '../../actions'
+import addUserOperation from '../../operations'
 
 class SignUp extends Component {
     constructor(props) {
@@ -27,7 +28,7 @@ class SignUp extends Component {
         this.props.addingUser(this.state);
 
         // TODO: why not getting below things working
-        console.log("Userdata: ", this.props.userData)
+        console.log("Userdata: ", this.props.userData);
     }
 
     render() {
@@ -57,13 +58,13 @@ class SignUp extends Component {
 }
 
 const mapStateToProps = state => {
-    return{
+    return {
         userData: state.user
     }
 }
 
 const mapDispatchToProps = dispatch => ({
-    addingUser: obj => dispatch(addUser(obj))
+    addingUser: obj => dispatch(addUserOperation(obj))
 })
 
 export default connect(
