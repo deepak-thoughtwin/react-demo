@@ -1,12 +1,15 @@
 import { ADD_USER } from '../actionTypes';
 
-const initialState = { }
+const initialState = {
+    users: []
+}
 
 const addUser = (state = initialState, action) => {
-    // debugger
     switch (action.type) {
         case ADD_USER:
-            return Object.assign({}, state, action.obj)
+            const users = state.users
+            users.push(action.obj)
+            return Object.assign({}, state, {users: users})
         default:
             return state
     }
